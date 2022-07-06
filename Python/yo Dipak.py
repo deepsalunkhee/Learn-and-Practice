@@ -1,0 +1,1 @@
+print("Yo dipak shingade")
