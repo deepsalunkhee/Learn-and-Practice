@@ -5,7 +5,7 @@ public class Guessnum {
 
 
     public static void main(String[] args) {
-//MINI PROJECT
+//MINI PROJECT for time pass
         Scanner sc = new Scanner(System.in);
         int myNumber = (int) (Math.random() * 100);
         int userNumber = 0;
