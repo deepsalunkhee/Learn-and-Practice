@@ -15,7 +15,7 @@ def transformSentence(sentence):
             else:
                 st+=i[j+1]
         li.append(st)
-        st=""cd
+        st=""
     result=""
     
     for i in li:
