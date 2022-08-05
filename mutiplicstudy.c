@@ -5,6 +5,9 @@ void dipakwach(int a[10][10],int r, int c)
     {
        for (int j = 0; j < c; j++)
        {
+        
+        
+        
         scanf("%d",&a[i][j]);
        }
        
