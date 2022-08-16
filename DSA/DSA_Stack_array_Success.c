@@ -9,16 +9,18 @@ typedef struct
     int top;
 } stack;
 
-void push(stack *s, int x)
+void push(stack *s, int ele)
 {
+
     if (s->top == MAX - 1)
     {
-        printf("Stack over flow");
+        printf("Stack over flow\n");
     }
     else
     {
+
         s->top++;
-        s->a[s->top] = x;
+        s->a[s->top] = ele; // s1.[s1.top]=x  there is difference between s and s1.
     }
 }
 
@@ -34,30 +36,31 @@ int isempty(stack *s)
     }
 }
 
-int pop(stack *s)
+void pop(stack *s)
 {
     int x;
     if (isempty(s))
     {
-        return -1;
+
+        printf("Stack underflow\n");
     }
     else
     {
         x = s->a[s->top];
         s->top--;
-        return x;
+        printf("element Poped=%d", x);
     }
 }
 
-int stack_top(stack *s)
+void stack_top(stack *s)
 {
     if (isempty(s))
     {
-        return -1;
+        printf("Stack underflow\n");
     }
     else
     {
-        return s->a[s->top];
+        printf("Stack top=%d\n", s->a[s->top]);
     }
 }
 
@@ -66,22 +69,22 @@ void display(stack *s)
     int i;
     if (isempty(s))
     {
-        printf("Stack under flow");
+        printf("Stack under flow\n");
     }
     else
     {
         for (i = s->top; i >= 0; i--)
         {
-            printf("%d\t", s->a[i]);
+            printf("|_%d_|\n", s->a[i]);
         }
     }
 }
 
 int main()
 {
-    stack *s1;
-    int ch, element;
-    s1->top = -1;
+    stack s1;
+    int ch, ele;
+    s1.top = -1;
     do
     {
         printf("1:Push\n2:Pop\n3:Stacktop\n4:Display\n5:Exit\n");
@@ -93,34 +96,18 @@ int main()
         {
         case 1:
             printf("ENTER ELEMENT TO BE PUSHED:\n");
-            scanf("%d", element);
-            push(s1, element);
+            scanf("%d", &ele);
+            push(&s1, ele);
             break;
-        case 2:
-            element = pop(s1);
-            if (element == -1)
-            {
-                printf("Stack underflow");
-            }
-            else
-            {
-                printf("element Poped=%d", element);
-            }
 
+        case 2:
+            pop(&s1);
             break;
         case 3:
-            element = stack_top(s1);
-            if (element == -1)
-            {
-                printf("Stack underflow");
-            }
-            else
-            {
-                printf("Stack top=%d", element);
-            }
+            stack_top(&s1);
             break;
         case 4:
-            display(s1);
+            display(&s1);
             break;
         case 5:
             printf("exit satisfied\n");

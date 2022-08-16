@@ -1,7 +1,6 @@
 // Implimebting stack using array my style
 
-
-#include<stdio.h>
+#include <stdio.h>
 #define MAX 10
 
 struct stack
@@ -10,22 +9,22 @@ struct stack
     int top;
 };
 
-void push( struct stack *s, int x )
+void push(struct stack *s, int x)
 {
-    if( s->top==MAX-1)
+    if (s->top == MAX - 1)
     {
         printf("Stack over flow");
     }
     else
     {
         s->top++;
-        s->a[s->top]=x;
+        s->a[s->top] = x;
     }
 }
 
-int isempty( struct stack *s)
+int isempty(struct stack *s)
 {
-    if(s->top==-1)
+    if (s->top == -1)
     {
         return -1;
     }
@@ -33,12 +32,11 @@ int isempty( struct stack *s)
     {
         return 0;
     }
-    
 }
 
-int stack_top( struct stack *s)
+int stack_top(struct stack *s)
 {
-    if(isempty(s))
+    if (isempty(s))
     {
         return -1;
     }
@@ -48,50 +46,40 @@ int stack_top( struct stack *s)
     }
 }
 
-
-
-
-
 int main()
 {
     struct stack s1;
-    int ch,element;
-    s1.top=-1;
+    int ch, element;
+    s1.top = -1;
     do
     {
         printf("1:Push\n2:Pop\n3:Stacktop\n4:Display\n5:Exit\n");
 
         printf("Enter choice:\n");
-        scanf("%d",&ch);
+        scanf("%d", &ch);
 
-        switch(ch)
+        switch (ch)
         {
-            case 1:printf("ENTER ELEMENT TO BE PUSHED:\n");
-                   scanf("%d",element);
-                   push(&s1,element);
-                   break;
+        case 1:
+            printf("ENTER ELEMENT TO BE PUSHED:\n");
+            scanf("%d", element);
+            push(&s1, element);
+            break;
 
-
-            case 3:element=stack_top(&s1);
-                   if(element==-1)
-                   {
-                    printf("Stack underflow");
-                   }
-                   else
-                   {
-                    printf("Stack top=%d\n",element);
-                   }
-                   break;
-            
+        case 3:
+            element = stack_top(&s1);
+            if (element == -1)
+            {
+                printf("Stack underflow");
+            }
+            else
+            {
+                printf("Stack top=%d\n", element);
+            }
+            break;
         }
 
-        
-    }
-    while(ch!=5);
-
+    } while (ch != 5);
 
     return 0;
 }
-
-
-

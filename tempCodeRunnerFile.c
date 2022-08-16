@@ -1,1 +1,1 @@
- Implimebting stack using array my style
+stack *s1,element
