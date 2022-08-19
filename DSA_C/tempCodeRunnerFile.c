@@ -1,130 +1,100 @@
-#include <stdio.h>
-
-#include <string.h>
-#define MAX 50
-
-typedef struct
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#define MAX 10
+typedef struct 
 {
-    char a[MAX];
+    int a[MAX];
     int top;
-} stack;
-
-
-void push(stack *s,char ele)
+}stack;
+//Function to insert the element into stack.
+void push(stack*s, int ele)
 {
     s->top++;
     s->a[s->top]=ele;
 }
-
-
-int pop(stack *s)
+//Function to delete element from stack.
+int pop(stack*s)
 {
-    char x;
+    int x;
     x=s->a[s->top];
     s->top--;
     return x;
 }
-
-int isempty(stack *s)
+//Function to check operand.
+int isoperand(char a)
 {
-    if(s->top==-1)
-    return 1; 
-    else
-    return 0;
-}
-void display(stack *s)
-{
-    char i;
-    if (isempty(s))
+    if(a>='0'&&a<='9')
     {
-        printf("Stack under flow\n");
+        return 1;
     }
     else
     {
-        for (i = s->top; i >= 0; i--)
-        {
-            printf("|_%c_|\n", s->a[i]);
-        }
+        return 0;
     }
 }
-
-int importance(char ch)
-{
-    switch(ch)
-    {
-        case '(':return 0;
-        case '+':
-        case '-':return 1;
-        case '*':
-        case '%':
-        case '/':return 2;
-        default :return -1;
-    }
-}
-
-int isoperand(char x)
-{
-    if ((x >= 'A' && x <= 'Z') || (x >= 'a' && x <= 'z') || (x >= '0' && x <= '9'))
-    return 1;
-    else
-    return 0;
-}
-
-int isoperator(char x)
-{
-    if(x=='+'||x=='-'||x=='*'||x=='/'||x=='%')
-    return 1;
-     else
-    return 0;
-}
-
-void converter(char infix[],char postfix[])
+/*Function to evaluate postfix operation.*/
+int evaluatepost(char post[])
 {
     stack s;
     s.top=-1;
-    int i,j,k=0,ele;
-
-    for(i=0;i<strlen(infix);i++)
+    int op1, op2, v;
+    char y, a;
+    for (int i = 0; i < strlen(post); i++)
     {
-        if(isoperand(infix[i]))
+        y=post[i];
+        if (isoperand(a))
         {
-            postfix[k++]=infix[i];
+            push(&s, (int)a-'0');
         }
-        else if(isoperator(infix[i]))
+        else
         {
-           push(&s,infix[i]);
-
+            op1=pop(&s);
+            op2=pop(&s);
+            switch (y)
+            {
+            case '+':
+            {
+                v=op1+op2;
+                break;
+            }
+            case '-':
+            {
+                v=op1-op2;
+                break;
+            }
+            case '*':
+            {
+                v=op1*op2;
+                break;
+            }
+            case '/':
+            {
+                v=op1/op2;
+                break;
+            }
+            case '%':
+            {
+                v=op1%op2;
+                break;
+            }
+            default:
+            {
+                printf("\nInvalid choice.");
+                break;
+            }
+            }
+            push(&s, v);
         }
-       
-
-    
         
-
     }
-    display(&s);
-
-    while(isempty(&s)==0)
-    {
-        ele=pop(&s);
-        postfix[k++]=ele;
-
-    }
-
-    for(j=0;j<k;j++)
-    {
-        printf("%c ",postfix[j]);
-    }
+    return pop(&s);
 }
-
-
-    int main()
+int main()
 {
-    char infix[50];
-    char postfix[50];
-    printf("enter the infix expression\n");
-    gets(infix);
-    
-    converter(infix, postfix);
-   
+    char post[10];
+    printf("\nEnter the postfix expression:");
+    gets(post);
+    printf("result = %d",evaluatepost(post));
     return 0;
 }
