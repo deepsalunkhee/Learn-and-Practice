@@ -70,6 +70,8 @@ int isoperand(char x)
 {
     if ((x >= 'A' && x <= 'Z') || (x >= 'a' && x <= 'z') || (x >= '0' && x <= '9'))
         return 1;
+    else
+        return 0;
 }
 
 void convert(char infix[], char postfix[])
