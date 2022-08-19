@@ -79,6 +79,17 @@ int isoperator(char x)
     else
         return 0;
 }
+char stack_top(stack *s)
+{
+    if (isempty(s))
+    {
+        printf("Stack underflow\n");
+    }
+    else
+    {
+        return s->a[s->top];
+    }
+}
 
 void converter(char infix[], char postfix[])
 {
@@ -94,6 +105,37 @@ void converter(char infix[], char postfix[])
         }
         else if (isoperator(infix[i]))
         {
+            push(&s, infix[i]);
+        }
+        else if (infix[i] == '(')
+        {
+            push(&s, infix[i]);
+        }
+        else if (infix[i] == ')')
+        {
+            while (1)
+            {
+                ele = pop(&s);
+                if (ele == '(')
+                    break;
+                postfix[k++] = ele;
+            }
+        }
+        else if (isempty(&s))
+        {
+            push(&s, infix[i]);
+        }
+        else if (importance(infix[i]) > importance(stack_top(&s)))
+        {
+            push(&s, infix[i]);
+        }
+        else
+        {
+            while ((isempty(&s) == 0) && (importance(infix[i]) <= importance(stack_top(&s))))
+            {
+                ele = pop(&s);
+                postfix[k++] = ele;
+            }
             push(&s, infix[i]);
         }
     }
