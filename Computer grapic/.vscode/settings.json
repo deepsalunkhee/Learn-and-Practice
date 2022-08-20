@@ -2,6 +2,7 @@
   "files.associations": {
     "BRESENHA.C": "cpp",
     "DDALINE.C": "cpp",
-    "MIDPOINT.C": "cpp"
+    "MIDPOINT.C": "cpp",
+    "SCANLINE.C": "cpp"
   }
 }
