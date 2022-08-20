@@ -3,6 +3,7 @@
     "BRESENHA.C": "cpp",
     "DDALINE.C": "cpp",
     "MIDPOINT.C": "cpp",
-    "SCANLINE.C": "cpp"
+    "SCANLINE.C": "cpp",
+    "BOUNDRYF.C": "cpp"
   }
 }
