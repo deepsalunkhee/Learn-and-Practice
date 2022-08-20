@@ -4,6 +4,7 @@
     "DDALINE.C": "cpp",
     "MIDPOINT.C": "cpp",
     "SCANLINE.C": "cpp",
-    "BOUNDRYF.C": "cpp"
+    "BOUNDRYF.C": "cpp",
+    "FLOODFIL.C": "cpp"
   }
 }
