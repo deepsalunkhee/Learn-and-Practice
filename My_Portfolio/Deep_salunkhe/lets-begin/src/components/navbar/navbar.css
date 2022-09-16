@@ -2,7 +2,8 @@
 {
     height: 15vh;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
+    z-index: 100;
 }
 
 .n-left
@@ -23,10 +24,10 @@
 .n-right
 { 
     display: flex;
-    flex: 1;
-    align-items: flex-start;
+    flex: 10;
+    align-items:center;
     gap: 2rem;
-    justify-content: flex-end;
+    justify-content: right;
     font-weight: 400;
 }
 
@@ -34,6 +35,11 @@
 
     display: flex;
     gap: 3rem;
+    
+}
+.n-list
+{
+    z-index: 100;
 }
 
 .n-name:hover
@@ -48,4 +54,5 @@
     cursor: pointer;
     color: aqua;
     font-weight: 400;
+   
 }

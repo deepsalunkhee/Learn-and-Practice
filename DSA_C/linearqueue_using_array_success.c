@@ -8,7 +8,7 @@ typedef struct
 
 void enqueue(queue *q, int ele)
 {
-    if (q->rear == MAX)
+    if (q->rear == MAX - 1)
     {
         printf("\nQueue is overflow.");
     }

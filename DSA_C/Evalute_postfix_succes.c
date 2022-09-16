@@ -82,13 +82,13 @@ int postfixevalute(char postfix[])
                 v = op1 + op2;
                 break;
             case '-':
-                v = op1 - op2;
+                v = op2 - op1;
                 break;
             case '*':
                 v = op1 * op2;
                 break;
             case '/':
-                v = op1 / op2;
+                v = op2 / op1;
                 break;
             case '%':
                 v = op1 % op2;

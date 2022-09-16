@@ -1,0 +1,20 @@
+.f-top_left
+{
+ justify-content: space-around;
+ display: flex;
+ background: white;
+ border-radius: 7rem;
+ align-items: center;
+ padding: 0px 28px 0px 0px;
+ height: 4.5rem;
+}
+
+.web
+{
+    color: black;
+    
+}
+.crown
+{
+    transform: scale(0.5);
+}

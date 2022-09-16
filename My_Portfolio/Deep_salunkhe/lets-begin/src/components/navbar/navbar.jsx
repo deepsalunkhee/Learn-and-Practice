@@ -1,12 +1,15 @@
 import React from 'react'
 import './navbar.css'
+import ima from  './1.png';
+
+
   
 const Navbar = () => {
   return (
     
-        <div className='n- cover'>
+        <div className='n-cover'>
             <div className='n-left'>
-                <div className='n-name'>D.S</div>
+                <div className='n-name'><img src={ima} alt="Me" height={100} /></div>
                 <span>something</span>
             </div>
             <div className='n-right'>
