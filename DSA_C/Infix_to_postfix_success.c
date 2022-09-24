@@ -1,166 +1,125 @@
-#include <stdio.h>
-
-#include <string.h>
-#define MAX 50
-
+/*INFIX TO POSTFIX*/
+#include<stdio.h>
+#include<string.h>
+#define MAX 20
 typedef struct
 {
-    char a[MAX];
-    int top;
-} stack;
-
-void push(stack *s, char ele)
+	char a[MAX];
+	int top;
+}stack;
+void push(stack*s, char x)
 {
-    s->top++;
-    s->a[s->top] = ele;
+	s->top++;
+	s->a[s->top]=x;
 }
-
-int pop(stack *s)
+int isempty(stack*s)
 {
-    char x;
-    x = s->a[s->top];
-    s->top--;
-    return x;
+	if(s->top==-1)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }
-
-int isempty(stack *s)
+char pop(stack*s)
 {
-    if (s->top == -1)
-        return 1;
-    else
-        return 0;
+	char x;
+	x=s->a[s->top];
+	s->top--;
+	return x;
 }
-void display(stack *s)
-{
-    char i;
-    if (isempty(s))
-    {
-        printf("Stack under flow\n");
-    }
-    else
-    {
-        for (i = s->top; i >= 0; i--)
-        {
-            printf("|_%c_|\n", s->a[i]);
-        }
-    }
-}
-
-int importance(char ch)
-{
-    switch (ch)
-    {
-    case '(':
-        return 0;
-    case '+':
-    case '-':
-        return 1;
-    case '*':
-    case '%':
-    case '/':
-        return 2;
-    default:
-        return -1;
-    }
-}
-
 int isoperand(char x)
 {
-    if ((x >= 'A' && x <= 'Z') || (x >= 'a' && x <= 'z') || (x >= '0' && x <= '9'))
-        return 1;
-    else
-        return 0;
+	if((x>='A'&&x<='Z')||((x>='a'&&x<='z')))
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }
-
 int isoperator(char x)
 {
-    if (x == '+' || x == '-' || x == '*' || x == '/' || x == '%')
-        return 1;
-    else
-        return 0;
+	if(x=='+'||x=='-'||x=='/'||x=='*')
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
 }
-char stack_top(stack *s)
+char stacktop(stack*s)
 {
-    if (isempty(s))
-    {
-        printf("Stack underflow\n");
-    }
-    else
-    {
-        return s->a[s->top];
-    }
+	return s->a[s->top];
 }
-
-void converter(char infix[], char postfix[])
+int priority(char x)
 {
-    stack s;
-    s.top = -1;
-    int i, j, k = 0, ele;
-
-    for (i = 0; i < strlen(infix); i++)
-    {
-        if (isoperand(infix[i]))
-        {
-            postfix[k++] = infix[i];
-        }
-        else if (isoperator(infix[i]))
-        {
-            push(&s, infix[i]);
-        }
-        else if (infix[i] == '(')
-        {
-            push(&s, infix[i]);
-        }
-        else if (infix[i] == ')')
-        {
-            while (1)
-            {
-                ele = pop(&s);
-                if (ele == '(')
-                    break;
-                postfix[k++] = ele;
-            }
-        }
-        else if (isempty(&s))
-        {
-            push(&s, infix[i]);
-        }
-        else if (importance(infix[i]) > importance(stack_top(&s)))
-        {
-            push(&s, infix[i]);
-        }
-        else
-        {
-            while ((isempty(&s) == 0) && (importance(infix[i]) <= importance(stack_top(&s))))
-            {
-                ele = pop(&s);
-                postfix[k++] = ele;
-            }
-            push(&s, infix[i]);
-        }
-    }
-    display(&s);
-
-    while (isempty(&s) == 0)
-    {
-        ele = pop(&s);
-        postfix[k++] = ele;
-    }
-
-    for (j = 0; j < k; j++)
-    {
-        printf("%c ", postfix[j]);
-    }
+	if(x=='*'||x=='/')
+	{
+		return 3;
+	}
+	else if(x=='+'||x=='-')
+	{
+		return 2;
+	}
+	else
+	{
+		return 1;
+	}
 }
-
+void convert(char infix[], char postfix[])
+{
+	stack s;
+	s.top=-1;
+	char x, ele;
+	int i, k=0;
+	for(i=0; i<strlen(infix); i++)
+	{
+		x=infix[i];
+		if(isoperand(x))
+		{
+			postfix[k++]=x;
+		}
+		else if(x=='(')
+		{
+			push(&s, x);
+		}
+		else if(isoperator(x))
+		{
+			while(priority(x)<=priority(stacktop(&s)))
+			{
+				ele = pop(&s);
+				postfix[k++] = ele;
+			}
+			push(&s, x);
+		}
+		else
+		{
+			while(stacktop(&s)!= '(')
+			{
+				ele = pop(&s);
+				postfix[k++]=ele;
+			}
+			ele=pop(&s);
+		}
+	}
+	while(isempty(&s)==0)
+	{
+		ele = pop(&s);
+		postfix[k++] = ele ;
+	}
+	postfix[k] = '\0';
+}
 int main()
 {
-    char infix[50];
-    char postfix[50];
-    printf("enter the infix expression\n");
-    gets(infix);
-
-    converter(infix, postfix);
-
-    return 0;
+	char infix[20], postfix[20];
+	printf("\nEnter the Infix Expression:");
+	gets(infix);
+	convert(infix, postfix);
+	printf("\nPostfix Expression = %s", postfix);
+	return 0;
 }
