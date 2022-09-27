@@ -1,0 +1,142 @@
+.Intro
+{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    
+}
+
+.i-left
+{
+    display: grid;
+    padding: 1rem;
+   text-align: left;
+   border: solid orange 0.1rem;
+   
+}
+.trial
+{
+    border: solid orange 0.1rem;
+    
+  display: flex;
+  
+
+  align-items:center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* .Intro
+{
+    height: 80vh;
+   
+    justify-content: space-between; 
+}
+.i-kaun
+{
+   
+    flex: 1;
+    position: relative;
+    font-size: 2rem;
+}
+
+.i-me
+{
+    font-size: xx-large;
+    color: darkorange;
+   
+}
+.i-me>span:hover
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: xx-large;
+    color: rgb(20, 160, 220);
+    
+    cursor: pointer;
+    background-color: crimson;
+    background-blend-mode: color;
+    
+    
+
+}
+
+.i-right
+{
+    flex: 1;
+   
+    position: relative;
+    justify-content: right;
+    
+  
+}
+
+.i-right>*
+{
+    position: absolute;
+    z-index: 1;
+    
+
+
+}
+
+@keyframes rotate1
+{
+   from{transform: rotate(0deg);}
+   to{transform: rotate(360deg);} 
+}
+@keyframes rotate2
+{
+   from{transform: rotate(360deg);}
+   to{transform: rotate(0deg);} 
+}
+
+.ima1
+{
+    animation: rotate1 10s  linear infinite;
+    position: absolute;
+    display: flex;
+    left: 100px;
+    
+
+    
+
+    
+    
+}
+.ima2
+{
+    display: flex;
+    animation: rotate 10s  linear infinite;
+    position: absolute;
+    right: 100px;
+    left: 60px;
+   
+    
+    
+   
+
+}
+
+.me{
+
+    position: absolute;
+    left: 15px;
+}
+.floating-2
+{
+   position: absolute; 
+   top: 500px;
+   left: 700px;
+   z-index: 100;
+}
+.floating
+{
+    position: absolute;
+    left: 1000px;
+    z-index: 100;
+}
+
+
+
+
+ */

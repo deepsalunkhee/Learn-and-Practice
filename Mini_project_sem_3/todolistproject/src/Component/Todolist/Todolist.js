@@ -10,6 +10,7 @@ function Todolist() {
           <th>ToDo Name</th>
           <th>Description</th>
           <th>Status</th>
+          <th><button className="btn btn-sm btn-danger" onClick={()=>{onDelete(todo)}}>Delete</button> </th>
           
         </tr>
       </thead>
@@ -26,6 +27,7 @@ function Todolist() {
           <td>Sukant</td>
           <td>Deep</td>
           <td><Form.Check type="checkbox"  /></td>
+         
           
         </tr>
         

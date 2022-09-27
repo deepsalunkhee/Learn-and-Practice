@@ -16,6 +16,7 @@
     overflow: hidden;
     color: white;
     background-color: black;  
+    min-height: 1110vh;
 }
 
 .button {
