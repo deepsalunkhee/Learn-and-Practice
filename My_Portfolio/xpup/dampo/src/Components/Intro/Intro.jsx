@@ -20,22 +20,25 @@ const Intro = () => {
             <p className='i-me'><span>D</span><span>e</span><span>e</span><span>p</span> <span>S</span><span>a</span><span>l</span><span>u</span><span>n</span><span>k</span><span>h</span><span>e</span></p>
             <p className='i-info'> Tech enthusiast , a curious brain ,always eager to learn ,interested in full stack<br/> Web development , cloud
                                     management and competitive programing </p>
-            <button className="button">resume</button>
+            <button className="button">Upcoming...</button>
         </div>
-        <div className='trial'>
+        {/* <div className='trial'>
         <img src={test} alt="b2" height={200}/>
 
-        </div>
-        {/* <div className='i-right'>
+        </div> */}
+        <div className='i-right'>
           <div className='ima1'>
-            <img src={b1}  alt="b1" height={100}  />
+            <img src={b1}  className="im1" alt="b1" height={220} />
             </div>
           <div className='ima2'>
-            <img src={b2} alt="b2" height={100}/>
+            <img src={b2} className="im2" alt="b2" height={220}/>
             </div>
-          
-          <img src={me} className="me" alt="me"height={100} />
+          <div className="me">
+            <img src={me} className="im3"  alt="me"height={220} />
+          </div>
         </div>
+       
+         {/*
         <motion.div
          initial={{ left: "65rem", top: "10rem" }}
          whileHover={{ left: "60rem" }}

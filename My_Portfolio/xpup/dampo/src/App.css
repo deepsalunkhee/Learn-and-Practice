@@ -2,7 +2,7 @@
   text-align: center;
   padding: 1rem;
   background-color: black;
-  gap: 1rem;
+ 
 
   color: white;
   
@@ -17,6 +17,7 @@
     color: white;
     font-size: 16px;
     padding: 11px 26px 11px 26px;
+    z-index: 3;
   } 
   
   .button:hover {

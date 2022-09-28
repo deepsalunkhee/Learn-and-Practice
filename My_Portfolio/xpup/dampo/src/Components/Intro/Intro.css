@@ -11,20 +11,46 @@
     display: grid;
     padding: 1rem;
    text-align: left;
-   border: solid orange 0.1rem;
+   /* border: solid orange 0.1rem; */
    
 }
-.trial
+.i-right
 {
-    border: solid orange 0.1rem;
-    
-  display: flex;
-  
-
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
   align-items:center;
   justify-content: center;
+  grid-template-areas: "overlap";
   padding: 1rem;
+  
 }
+
+
+.me
+{
+    grid-area: overlap;
+    align-self: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.ima1{
+
+    grid-area: overlap;
+    align-self: center; 
+    align-items: center;
+    z-index: 0;
+}
+
+.ima2{
+ grid-area: overlap;
+ align-self: center;
+ align-items: center;
+ z-index: 0;
+}
+
+
 
 /* .Intro
 {
@@ -45,7 +71,8 @@
     font-size: xx-large;
     color: darkorange;
    
-}
+}*/
+
 .i-me>span:hover
 {
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -60,7 +87,7 @@
 
 }
 
-.i-right
+/* .i-right
 {
     flex: 1;
    
@@ -68,16 +95,17 @@
     justify-content: right;
     
   
-}
+} */
 
-.i-right>*
+/* .i-right>*
 {
     position: absolute;
     z-index: 1;
     
 
 
-}
+} */
+
 
 @keyframes rotate1
 {
@@ -90,38 +118,31 @@
    to{transform: rotate(0deg);} 
 }
 
-.ima1
+
+ /* .ima1
 {
     animation: rotate1 10s  linear infinite;
-    position: absolute;
+    position: relative;
     display: flex;
     left: 100px;
-    
-
-    
-
-    
-    
-}
-.ima2
+   
+} */
+/* .ima2
 {
     display: flex;
-    animation: rotate 10s  linear infinite;
-    position: absolute;
+    animation: rotate2 10s  linear infinite;
+    position: relative;
     right: 100px;
     left: 60px;
    
-    
-    
-   
+}  */
 
-}
 
-.me{
+/* .me{
 
     position: absolute;
     left: 15px;
-}
+} */
 .floating-2
 {
    position: absolute; 
@@ -139,4 +160,4 @@
 
 
 
- */
+

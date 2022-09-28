@@ -13,24 +13,24 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav"style={{color:"white"}} />
         <Navbar.Collapse id="responsive-navbar-nav" style={{color:"white"}}>
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <Nav.Link href="#features">Upcoming...</Nav.Link>
+            <Nav.Link href="#pricing">Upcoming...</Nav.Link>
+            <NavDropdown title="Upcoming..." id="collasible-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Upcoming...</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+              Upcoming...
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Upcoming...</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
-                Separated link
+              Upcoming...
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link href="#deets">Upcoming...</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              Dank memes
+              Upcoming...
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

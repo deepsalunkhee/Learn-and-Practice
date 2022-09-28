@@ -1,0 +1,29 @@
+.contact
+{
+    padding: 1rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    z-index: 3;
+}
+.Linkden
+{
+    display: grid;
+    align-self: center; 
+    align-items: center;
+    z-index: 3;
+}
+.Github
+{
+    display: grid;
+    align-self: center; 
+    align-items: center;
+    z-index: 3;
+}
+.codechef
+{
+    align-self: center; 
+    align-items: center;
+    display: grid;
+    z-index: 3;
+}
