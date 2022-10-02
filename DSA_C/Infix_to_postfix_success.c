@@ -1,4 +1,7 @@
-/*INFIX TO POSTFIX*/
+//INFIX TO POSTFIX
+//Deep Salunkhe
+//21102A0014
+//SE CMPN A
 #include<stdio.h>
 #include<string.h>
 #define MAX 20

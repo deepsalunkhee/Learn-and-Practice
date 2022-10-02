@@ -1,4 +1,7 @@
 #include <stdio.h>
+//Deep Salunkhe
+//21102A0014
+//SE CMPN A
 #define MAX 10
 typedef struct
 {

@@ -1,3 +1,7 @@
+//Circular queue
+//Deep Salunkhe
+//21102A0014
+//SE CMPN A
 #include <stdio.h>
 #define MAX 10
 typedef struct

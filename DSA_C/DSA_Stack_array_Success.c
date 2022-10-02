@@ -1,4 +1,7 @@
 // Implimentng stack using array
+// Deep Salunkhe
+// 21102A004
+// SE CMPNA
 
 #include <stdio.h>
 #define MAX 10

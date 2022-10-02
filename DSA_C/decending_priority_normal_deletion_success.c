@@ -1,3 +1,6 @@
+//Deep Salunkhe
+//21101A0014
+//SE CMPN A
 #include <stdio.h>
 #define MAX 5
 typedef struct
