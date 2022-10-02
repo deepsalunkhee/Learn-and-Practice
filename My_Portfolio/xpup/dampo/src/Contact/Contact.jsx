@@ -10,12 +10,12 @@ const Contact = () => {
         <div className='linkden'>
           
           <a href='https://in.linkedin.com/in/deep-salunkhe-917931225?trk=public_profile_browsemap' target={"blank"}><img src={linkden} alt="Linkden" width={350} style={{border:"0.3rem solid orange"} } /></a>  
-          <p style={{color:"orange"}}>Linkden</p>
+          <p style={{color:"orange"}}>linkedin</p>
           
         </div>
         <div className="Github">
         <a href='https://github.com/deepsalunkhee' target={"blank"}><img src={Github} alt="Linkden" width={350} style={{border:"0.3rem solid orange"} } /></a>  
-        <p style={{color:"orange"}}>Guithub</p>
+        <p style={{color:"orange"}}>Github</p>
         </div>
         <div className="codechef">
         <a href='https://www.codechef.com/users/deepsalunkhee' target={"blank"}><img src={Codechef} alt="Linkden" width={350} style={{border:"0.3rem solid orange"} } /></a>  
