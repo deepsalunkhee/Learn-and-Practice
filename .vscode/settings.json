@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "DDALINE.C": "cpp"
+    "DDALINE.C": "cpp",
+    "2STRANSF.C": "cpp"
   }
 }

@@ -144,3 +144,11 @@ int main()
     } while (ch != 5);
     return 0;
 }
+
+
+
+// sort(nums.begin(), nums.begin()+nums.size());
+//        unique(nums.begin(), nums.begin()+nums.size());
+//        nums.resize(distance(nums.begin(),unique(nums.begin(), nums.begin()+nums.size())));
+
+//         return nums.at(nums.size()-1);
