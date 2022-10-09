@@ -1,0 +1,16 @@
+.Navbar
+{
+    background-color: black;
+    border: solid 3px rgb(255, 157, 0);
+   
+}
+.me-auto
+{
+    color: aliceblue;
+}
+
+#basic-nav-dropdown
+{
+    color: orange;
+}
+
