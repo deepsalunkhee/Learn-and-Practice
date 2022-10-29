@@ -1,3 +1,6 @@
+//Deep Salunkhe
+//21101A0014
+//SE CMPN A
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node

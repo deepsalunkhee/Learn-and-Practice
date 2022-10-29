@@ -1,3 +1,6 @@
+//Deep Salunkhe
+//21101A0014
+//SE CMPN A
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node
@@ -147,8 +150,3 @@ int main()
 
 
 
-// sort(nums.begin(), nums.begin()+nums.size());
-//        unique(nums.begin(), nums.begin()+nums.size());
-//        nums.resize(distance(nums.begin(),unique(nums.begin(), nums.begin()+nums.size())));
-
-//         return nums.at(nums.size()-1);
