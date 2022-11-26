@@ -3,6 +3,7 @@
 //SE CMPN A
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct node
 {
     int data;
