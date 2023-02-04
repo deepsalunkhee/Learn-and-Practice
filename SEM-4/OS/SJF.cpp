@@ -84,8 +84,52 @@ int main()
         {
             Arrived.push_back(PCB[inpcb]);
             inpcb++;
-            sort(PCB.begin(),PCB.end(),sortByburst);
+            sort(Arrived.begin(),Arrived.end(),sortByburst);
         }
 
         if(running.empty())
         {
+            running.push(Arrived[0]);
+            currBT=running.front().BT;
+          
+            Arrived.erase(Arrived.begin()+0);
+            
+
+        }
+        if(currBT==0)
+        {
+            ans.push_back(running.front());
+            
+            ans[index].waitingtime=time-ans[index].BT-ans[index].AT;
+            cout<<time<<endl;
+            index=index+1;
+            running.pop();
+            time--;
+        }
+
+
+
+        time++;
+    
+        
+        currBT--;
+    }
+	
+     cout<<"\t\tSJF"<<endl;
+    cout<<"PID"<<"\t"<<"BT"<<"\t"<<"AT"<<"\t"<<"WT"<<endl;
+	
+	for(int i=0;i<n;i++)
+	{
+		
+		 cout<<ans[i].pid<<" \t"<<ans[i].BT<<"  \t"<<ans[i].AT<<"  \t"<<ans[i].waitingtime<<endl;
+		
+	}
+	
+
+	
+	
+	
+	
+	
+   
+}
