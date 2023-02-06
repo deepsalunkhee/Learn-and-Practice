@@ -1,21 +1,20 @@
-//AOA Practical 1
-//Bubble Sort
+//InsertionSort
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
 
-void bubbleSort(int a[], int n){
-    //Sorting Function
-    int i, j, temp;
-    for(i=0; i<n-1; i++){
-        for(j=0; j<n-1; j++){
-            if(a[j]>a[j+1]){
-                temp = a[j];
-                a[j] = a[j+1];
-                a[j+1] = temp;
-            }
-        }
-    }
+void Insert_Sort(int a[],int n){
+	int i, j;
+	for(i=1; i<n; i++){
+		int current = a[i];
+		int j = i-1;
+		while(a[j]>current && j>=0){
+			a[j+1] = a[j];
+			j--;
+		}
+		a[j+1] = current;
+	}
+
 }
 
 int main(){
@@ -24,7 +23,7 @@ int main(){
     int *x;
     FILE *Rand, *Sort;
     float total; 
-    printf("\nHow many Inputs => ");
+    printf("\nHow many Inputs=> ");
     scanf("%d", &n);
     x = (int*)malloc(sizeof(int)*n);
     Rand = fopen("arr_rand.txt", "w"); //This will open the file in given mode
@@ -38,7 +37,7 @@ int main(){
     }
     start = clock();
     //Timer Started
-    bubbleSort(x, n);
+    Insert_Sort(x, n);
     end = clock();
     //Timer Stoped
     Sort = fopen("arr_sort.txt", "w");
