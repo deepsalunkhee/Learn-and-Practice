@@ -10,7 +10,9 @@ struct ProcessControlBlock
 	int pid;
 	int BT;
 	int AT;
+	int CT;
 	int waitingtime;
+	int TAT;
 	
 };
 
@@ -101,6 +103,8 @@ int main()
             ans.push_back(running.front());
             
             ans[index].waitingtime=time-ans[index].BT-ans[index].AT;
+            ans[index].CT=time;
+            ans[index].TAT=time-ans[index].AT;
             cout<<time<<endl;
             index=index+1;
             running.pop();
@@ -121,7 +125,7 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 		
-		 cout<<ans[i].pid<<" \t"<<ans[i].BT<<"  \t"<<ans[i].AT<<"  \t"<<ans[i].waitingtime<<endl;
+		 cout<<ans[i].pid<<" \t"<<ans[i].BT<<"  \t"<<ans[i].AT<<"  \t"<<ans[i].waitingtime<<"\t"<<endl;
 		
 	}
 	
