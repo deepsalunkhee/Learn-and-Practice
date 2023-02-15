@@ -86,7 +86,6 @@ int main()
         while (time == PCB[inpcb].AT && inpcb < n)
         {
             Arrived.push_back(PCB[inpcb]);
-
             inpcb++;
         }
 
@@ -168,6 +167,9 @@ int main()
     }
     cout << "Avg Waiting for FCFS:" << (avgWT / n) << endl;
     cout << "Avg TAT for FCFS:    " << (avgTAT / n) << endl;
+
+    return 0;
+}
 
     return 0;
 }
