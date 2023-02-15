@@ -13,7 +13,7 @@ struct ProcessControlBlock
     int CT;
     int waitingtime;
     int TAT;
-    int remainingtime;
+    
     int FBT;
 };
 
