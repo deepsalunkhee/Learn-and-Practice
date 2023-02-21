@@ -16,10 +16,7 @@ struct ProcessControlBlock
     int FBT;
 };
 
-vector<ProcessControlBlock> PCB;
-vector<ProcessControlBlock> Arrived;
-queue<ProcessControlBlock> running;
-vector<ProcessControlBlock> ans;
+
 
 int sortByarrival(ProcessControlBlock a, ProcessControlBlock b)
 {
@@ -39,6 +36,10 @@ int sortByRemaining(ProcessControlBlock a, ProcessControlBlock b)
 
 int main()
 {
+    vector<ProcessControlBlock> PCB;
+vector<ProcessControlBlock> Arrived;
+queue<ProcessControlBlock> running;
+vector<ProcessControlBlock> ans;
     int clock = 0, pcbindex = 0;
 
     int noOfProcess;

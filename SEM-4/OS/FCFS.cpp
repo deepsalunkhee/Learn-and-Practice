@@ -36,7 +36,7 @@ int sortByburst(ProcessControlBlock a, ProcessControlBlock b)
 int main()
 {
 
-	int clock = 0, pcbindex = 0;
+	
 
 	int noOfProcess;
 	cout << "ENTER THE NO. PROCESS =>"
@@ -68,7 +68,7 @@ int main()
 	int qfront1 = 0;
 	float wating1 = 0;
 	float TurnAround = 0;
-
+    int clock = 0, pcbindex = 0;
 	cout << "For FCFS for how much time the environment must be active "
 		 << "\t";
 	cin >> envActiveFor1;
