@@ -15,7 +15,11 @@ struct ProcessControlBlock
     int TAT;
 
     int FBT;
+    char type;
 };
+
+ vector<ProcessControlBlock> PCB;
+ int n;
 
 int sortByarrival(ProcessControlBlock a, ProcessControlBlock b)
 {
@@ -41,13 +45,18 @@ int sortByRemaining(ProcessControlBlock a, ProcessControlBlock b)
         return 0;
 }
 
-void FCFS(int n, vector<ProcessControlBlock> PCB)
+void FCFS()
 {
     vector<ProcessControlBlock> Arrived;
     queue<ProcessControlBlock> running;
     vector<ProcessControlBlock> ans;
     vector<ProcessControlBlock> Active;
+    vector<ProcessControlBlock>blocked;
     sort(PCB.begin(), PCB.end(), sortByarrival);
+    for(int i=0;i<n;i++)
+    {
+        PCB[i].FBT=PCB[i].BT;
+    }
 
     int envActiveFor1;
     int time1 = 0;
@@ -63,6 +72,7 @@ void FCFS(int n, vector<ProcessControlBlock> PCB)
     {
         while (time1 >= PCB[currentpcb1].AT)
         {
+            
             Active.push_back(PCB[currentpcb1]);
 
             currentpcb1 = currentpcb1 + 1;
@@ -109,14 +119,17 @@ void FCFS(int n, vector<ProcessControlBlock> PCB)
     cout << "Avg TAT for FCFS:    " << (float)(TurnAround / n) << endl;
 }
 
-void SJF(int n, vector<ProcessControlBlock> PCB)
+void SJF()
 {
     vector<ProcessControlBlock> Arrived;
     queue<ProcessControlBlock> running;
     vector<ProcessControlBlock> ans;
     vector<ProcessControlBlock> Active;
      sort(PCB.begin(),PCB.end(),sortByarrival);
-
+    for(int i=0;i<n;i++)
+    {
+        PCB[i].FBT=PCB[i].BT;
+    }
     int envruntime=30;
     int inpcb=0;
     int time=0;
@@ -190,7 +203,7 @@ void SJF(int n, vector<ProcessControlBlock> PCB)
 	cout << "Avg TAT for FCFS:    " << (avgTAT/ n) << endl;
 }
 
-void SRTN(int n, vector<ProcessControlBlock> PCB)
+void SRTN()
 {
 
     vector<ProcessControlBlock> Arrived;
@@ -198,7 +211,10 @@ void SRTN(int n, vector<ProcessControlBlock> PCB)
     vector<ProcessControlBlock> ans;
     vector<ProcessControlBlock> Active;
     sort(PCB.begin(),PCB.end(),sortByarrival);
-
+    for(int i=0;i<n;i++)
+    {
+        PCB[i].FBT=PCB[i].BT;
+    }
     int envruntime=30;
     int inpcb=0;
     int time=0;
@@ -273,7 +289,7 @@ void SRTN(int n, vector<ProcessControlBlock> PCB)
 	
 }
 
-void RR(int n, vector<ProcessControlBlock> PCB)
+void RR()
 {
 
      vector<ProcessControlBlock> Arrived;
@@ -281,7 +297,10 @@ void RR(int n, vector<ProcessControlBlock> PCB)
     vector<ProcessControlBlock> ans;
     vector<ProcessControlBlock> Active;
      sort(PCB.begin(), PCB.end(), sortByarrival);
-
+  for(int i=0;i<n;i++)
+    {
+        PCB[i].FBT=PCB[i].BT;
+    }
     int envruntime = 30;
     int inpcb = 0;
     int time = 0;
@@ -392,8 +411,8 @@ int main()
          << "\t";
     cin >> noOfProcess;
     cout << endl;
-    int n = noOfProcess;
-    vector<ProcessControlBlock> PCB;
+     n = noOfProcess;
+    // vector<ProcessControlBlock> PCB;
 
     for (int i = 0; i < n; i++)
     {
@@ -404,6 +423,8 @@ int main()
         cin >> dummy.BT;
         cout << "Enter the Arrival Time " << i + 1 << "\t";
         cin >> dummy.AT;
+        cout << "Enter the type" << i + 1 << "\t";
+        cin>>dummy.type;
         cout << endl;
         PCB.push_back(dummy);
     }
@@ -421,16 +442,16 @@ int main()
         switch (choice)
         {
         case 1:
-            FCFS(n, PCB);
+            FCFS();
             break;
         case 2:
-            SJF(n,PCB);
+            SJF();
             break;
         case 3:
-            SRTN(n,PCB);
+            SRTN();
             break;
         case 4:
-            RR(n,PCB);
+            RR();
             break;
         case 5:
             return 0;
@@ -439,4 +460,5 @@ int main()
             cout << "Invalid input" << endl;
         }
     }
+
 }
