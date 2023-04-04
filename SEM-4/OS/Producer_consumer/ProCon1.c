@@ -26,20 +26,24 @@ void *producer(void *arg) {
     pthread_exit(NULL);  // Exit the thread
 }
 
+
 // Consumer function
 void *consumer(void *arg) {
     int val;
+    FILE *fp = fopen("Consumed_product.txt", "w");   // Open the output file
     while (1) {   // Run forever
         sem_wait(&full);   // Wait until the buffer is not empty
         sem_wait(&mutex);  // Wait to acquire the buffer lock
         val = buffer[out];  // Retrieve an item from the buffer
         out = (out + 1) % BUFFER_SIZE;  // Increment the buffer pointer
-        printf("Consumed: %d\n", val);  // Print the consumed value
+        fprintf(fp, "%d\n", val);  // Write the consumed value to the output file
         sem_post(&mutex);  // Release the buffer lock
         sem_post(&empty);  // Signal that the buffer is not full
     }
+    fclose(fp);  // Close the output file
     pthread_exit(NULL);  // Exit the thread
 }
+
 
 int main() {
     sem_init(&empty, 0, BUFFER_SIZE);  // Initialize the empty semaphore to BUFFER_SIZE
