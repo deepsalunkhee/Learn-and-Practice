@@ -127,7 +127,7 @@ void Banker()
         }
 
         // Step 5: If no such process is found, the system is in an unsafe state
-        if (i == NoOfProcess)
+        if (i == (NoOfProcess))
         {
             cout << "The system is in an unsafe state." << endl;
             return;
