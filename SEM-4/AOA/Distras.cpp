@@ -45,10 +45,11 @@ vector<int> Distras(vector<vector<pair<int, int>>> &adj)
             int w = edge.second;
             if (!Visited[v] && w + distance[u] < distance[v])
             {
+        
 
                 distance[v] = w + distance[u];
                 parent[v] = u;
-            }
+            }       
         }
     }
 
