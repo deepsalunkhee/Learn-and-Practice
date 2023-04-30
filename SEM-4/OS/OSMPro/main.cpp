@@ -72,7 +72,7 @@ void print1D(vector<int> &matrix, int columns)
 {
     for (int j = 0; j < columns; j++)
     {
-        
+
         cout << matrix[j] << "\t";
     }
     cout<<endl;

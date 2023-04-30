@@ -1,0 +1,125 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
+class BankerUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Banker's Algorithm")
+        self.NoOfProcess = tk.IntVar()
+        self.NoOfResources = tk.IntVar()
+        self.MaxInstances = []
+        self.Allocation = []
+        self.MaxNeed = []
+        self.Need = []
+        self.CurrentlyAvailable = []
+        self.AvailvleAfterGiving = []
+
+        self.create_widgets()
+
+    def create_widgets(self):
+        # No of Process
+        tk.Label(self.root, text="Enter No of process").grid(row=0, column=0)
+        tk.Entry(self.root, textvariable=self.NoOfProcess).grid(
+            row=0, column=1)
+
+        # No of Resources
+        tk.Label(self.root, text="Enter No of Resources").grid(row=1, column=0)
+        tk.Entry(self.root, textvariable=self.NoOfResources).grid(
+            row=1, column=1)
+
+        # # Max No. of instance for each resources
+        # tk.Label(self.root, text="Enter the max No. of instance for each resource").grid(
+        #     row=2, column=0)
+        # for i in range(self.NoOfResources.get()):
+        #     temp = tk.IntVar()
+        #     tk.Entry(self.root, textvariable=temp).grid(row=2, column=i+1)
+        #     self.MaxInstances.append(temp)
+        # Max No. of instance for each resources
+        tk.Label(self.root, text="Enter the max No. of instance for each resource").grid(
+            row=2, column=0)
+        for i in range(self.NoOfResources.get()):
+            temp = tk.IntVar()
+            tk.Entry(self.root, textvariable=temp).grid(row=2, column=i+1)
+            self.MaxInstances.append(temp.get())  # add this line
+
+
+        # Resource allocation for each of the process
+        tk.Label(self.root, text="Enter resource allocation for each of the process").grid(
+            row=3, column=0)
+        for i in range(self.NoOfProcess.get()):
+            temp = []
+            for j in range(self.NoOfResources.get()):
+                temp1 = tk.IntVar()
+                tk.Entry(self.root, textvariable=temp1).grid(
+                    row=4+i, column=j+1)
+                temp.append(temp1)
+            self.Allocation.append(temp)
+
+        # Max resource needed for each of the process
+        tk.Label(self.root, text="Enter max resource needed for each of the process").grid(
+            row=self.NoOfProcess.get()+4, column=0)
+        for i in range(self.NoOfProcess.get()):
+            temp = []
+            for j in range(self.NoOfResources.get()):
+                temp1 = tk.IntVar()
+                tk.Entry(self.root, textvariable=temp1).grid(
+                    row=self.NoOfProcess.get()+5+i, column=j+1)
+                temp.append(temp1)
+            self.MaxNeed.append(temp)
+
+        # Safe Button
+        tk.Button(self.root, text="Check Safe State", command=self.check_safe_state).grid(
+            row=self.NoOfProcess.get()+6, column=0, columnspan=self.NoOfResources.get()+1, pady=10)
+
+    def CalNeed(self):
+        for i in range(self.NoOfProcess.get()):
+            temp = []
+            for j in range(self.NoOfResources.get()):
+                temp1 = self.MaxNeed[i][j].get() - self.Allocation[i][j].get()
+                temp.append(temp1)
+            self.Need.append(temp)
+
+    def CalCA(self):
+        for j in range(self.NoOfResources.get()):
+            temp = 0
+            for i in range(self.NoOfProcess.get()):
+                temp += self.Allocation[i][j].get()
+            self.CurrentlyAvailable.append(self.MaxInstances[j].get() - temp)
+
+    def check_safe_state(self):
+        # Step 1: Calculate the need matrix
+        self.CalNeed()
+
+        # Step 2: Calculate the currently available resources
+        self.CalCA()
+
+        # Step 3: Initialize the work and finish vectors
+        work = self.CurrentlyAvailable.copy()
+        finish = [False] * self.NoOfProcess.get()
+
+        # Step 4: Find a process that can be finished and whose needs can be met with the available resources
+        safe_sequence = []
+        while not all(finish):
+            found = False
+            for i in range(self.NoOfProcess.get()):
+                if not finish[i] and all(self.Need[i][j] <= work[j] for j in range(self.NoOfResources.get())):
+                    finish[i] = True
+                    found = True
+                    safe_sequence.append(i)
+                    for j in range(self.NoOfResources.get()):
+                        work[j] += self.Allocation[i][j].get()
+                    break
+            if not found:
+                messagebox.showinfo(
+                    "Unsafe State", "The system is in an unsafe state")
+                return
+
+        # Step 5: The system is in a safe state if all processes could be finished
+        messagebox.showinfo(
+            "Safe State", f"The system is in a safe state\nSafe sequence: {safe_sequence}")
+
+
+root = tk.Tk()
+banker_ui = BankerUI(root)
+root.mainloop()
