@@ -1,0 +1,59 @@
+from tkinter import *
+import tkinter.messagebox as tmsg
+
+def banker():
+    processes = int(p.get())
+    resources = int(r.get())
+    available = [int(i) for i in a.get().split()]
+    max_need = [[int(i) for i in j.get().split()] for j in max_need_list]
+    allocated = [[int(i) for i in j.get().split()] for j in allocated_list]
+    need = [[max_need[i][j] - allocated[i][j] for j in range(resources)] for i in range(processes)]
+    safe_sequence = []
+    while True:
+        if not any(need[i] <= available for i in range(processes)):
+            break
+        else:
+            index = need.index([i for i in need if i <= available][0])
+            safe_sequence.append(index)
+            available = [available[i] + allocated[index][i] for i in range(resources)]
+            need[index] = [float('inf')] * resources
+    tmsg.showinfo("Safe Sequence", f"Safe sequence : {safe_sequence}")
+
+root = Tk()
+root.geometry("500x500")
+root.title("Banker's Algorithm")
+
+p_label = Label(root, text="Number of processes : ")
+p_label.pack()
+p = Entry(root)
+p.pack()
+
+r_label = Label(root, text="Number of resources : ")
+r_label.pack()
+r = Entry(root)
+r.pack()
+
+a_label = Label(root, text="Number of available resources : ")
+a_label.pack()
+a = Entry(root)
+a.pack()
+
+max_need_list = []
+allocated_list = []
+
+for i in range(5):
+    max_need_label = Label(root, text=f"Max need of process {i+1} : ")
+    max_need_label.pack()
+    max_need_list.append(Entry(root))
+    max_need_list[i].pack()
+
+for i in range(5):
+    allocated_label = Label(root, text=f"Allocated resources to process {i+1} : ")
+    allocated_label.pack()
+    allocated_list.append(Entry(root))
+    allocated_list[i].pack()
+
+btn = Button(root, text="Find Safe Sequence", command=banker)
+btn.pack()
+
+root.mainloop()
