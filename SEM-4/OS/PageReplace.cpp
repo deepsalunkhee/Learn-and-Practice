@@ -68,6 +68,59 @@ void LRU(vector<int> IncomingPages, vector<int> Frame, int NoOfPages, int NoOfFr
     }
 }
 
+void LRU1(vector<int> IncomingPages, vector<int> Frame, int NoOfPages, int NoOfFrames)
+{
+    int NextFrameIndex = 0; // Index variable to keep track of the next available frame
+    Frame.resize(NoOfFrames, -1); // Resize the Frame vector to the specified number of frames and initialize all entries to -1
+    vector<int> LastUsedTime(NoOfFrames, -1); // Create a vector to store the last used times of pages in the frames and initialize all entries to -1
+
+    cout << "Incoming Pages: ";
+    for (int i = 0; i < NoOfPages; i++)
+    {
+        cout << IncomingPages[i] << " "; // Print the current incoming page
+
+        // Check if the incoming page is already present in the frame
+        bool Found = false;
+        int MinLastUsedTime = INT32_MAX; // Initialize the minimum last used time with the maximum possible value
+        int MinLastUsedTimeIndex = -1; // Index variable to store the index of the page with the minimum last used time
+        for (int j = 0; j < NoOfFrames; j++)
+        {
+            if (Frame[j] == IncomingPages[i]) // If the incoming page is found in the frame
+            {
+                Found = true;
+                LastUsedTime[j] = i; // Update the last used time of the page to the current time (i)
+                break;
+            }
+            else if (LastUsedTime[j] < MinLastUsedTime) // If the last used time of the current frame is less than the current minimum last used time
+            {
+                MinLastUsedTime = LastUsedTime[j]; // Update the minimum last used time
+                MinLastUsedTimeIndex = j; // Update the index of the page with the minimum last used time
+            }
+        }
+
+        // If the incoming page is not found in the frame, replace the least recently used page with the incoming page
+        if (!Found)
+        {
+            Frame[MinLastUsedTimeIndex] = IncomingPages[i]; // Replace the page at the index with the minimum last used time with the incoming page
+            LastUsedTime[MinLastUsedTimeIndex] = i; // Update the last used time of the newly added page
+        }
+
+        cout << "Frames: ";
+        for (int j = 0; j < NoOfFrames; j++)
+        {
+            if (Frame[j] == -1)
+            {
+                cout << "X "; // Print 'X' to indicate an empty frame
+            }
+            else
+            {
+                cout << Frame[j] << " "; // Print the page number in the frame
+            }
+        }
+        cout << endl;
+    }
+}
+
 
 void FIFO(vector<int> IncomingPages, vector<int> Frame, int NoOfPages, int NoOfFrames)
 {
