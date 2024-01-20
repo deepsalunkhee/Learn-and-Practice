@@ -66,8 +66,8 @@ int main() {
 	m["SUB"]="0003H";
 	
 	//the dataset end here
-    std::vector<std::string> input;
-    std::string inputfile ;
+    vector<string> input;
+    string inputfile ;
     string outputfile;
     
     cout<<"Enter filename to read"<<endl;
