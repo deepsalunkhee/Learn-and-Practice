@@ -1,4 +1,10 @@
 MOV
-MOV
+xyz MOV
+SUB
+JUMP xyz
 ADD
+ADD
+JUMP TM
+ADD
+TM SUB
 ADD
