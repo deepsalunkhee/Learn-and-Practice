@@ -73,14 +73,14 @@ void createOutputFile(vector<string> &input, map<string, string> &mneomonics_opp
 
             if (counter == 0)
             {
-                label_def[temp] = startAddress;
+                label_ref[temp] = startAddress;
             }
 
             if (counter == 1)
             {
                 // as I am adding the size of the mneomonics in the start address previously
                 // so I am subtracting it from the start address to get the address of the label
-                label_ref[temp] = startAddress - mneomonics_size[input[i - 1]];
+                label_def[temp] = startAddress - mneomonics_size[input[i - 1]];
             }
         }
 
