@@ -7,5 +7,7 @@
     "ostream": "cpp",
     "vector": "cpp",
     "queue": "cpp"
-  }
+  },
+  "appService.defaultWebAppToDeploy": "/subscriptions/fa83e87f-b3e9-4e34-b848-9d1a87e4d6dc/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/deepdemonode",
+  "appService.deploySubpath": "SEM-6\\CC\\Lab4"
 }
