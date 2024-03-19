@@ -86,6 +86,37 @@ string changebit(string s){
     return s;
 }
 
+string A8(string key ,string random){
+  //logic for A8
+  //Divide key and random in two 64 bits strings
+  //say key_64_L, key_64_R, random_64_L, random_64_R
+  //XOR key_64_L and random_64_R and store in A8_64_1
+  //XOR key_64_R and random_64_L and store in A8_64_2
+  //Xor A8_64_1 and A8_64_2 and store in A8_64
+  //return A8_64
+
+    string key_64_L=key.substr(0,64);
+    string key_64_R=key.substr(64,64);
+
+    string random_64_L=random.substr(0,64);
+    string random_64_R=random.substr(64,64);
+
+    string A8_64_1;
+    string A8_64_2;
+
+    for(int i=0;i<64;i++){
+        A8_64_1.push_back(key_64_L[i]^random_64_R[i]);
+        A8_64_2.push_back(key_64_R[i]^random_64_L[i]);
+    }
+
+    string A8_64;
+    for(int i=0;i<64;i++){
+        A8_64.push_back(A8_64_1[i]^A8_64_2[i]);
+    }
+
+    return A8_64;
+}
+
 int main(){
     string Key_AUC = Random128();
     string Key_SIM=Key_AUC;
@@ -103,6 +134,8 @@ int main(){
 
     string A3_AUC=A3(Key_AUC,Random_Number);
     string A3_SIM=A3(Key_SIM,Random_Number);
+
+   
     
 
     if(A3_AUC==A3_SIM){
@@ -110,6 +143,18 @@ int main(){
     }
     else{
         cout<<"Invalid SIM Card"<<endl;
+    }
+
+    string ecrykey_AUC=A8(Key_AUC,Random_Number);
+    string ecrykey_SIM=A8(Key_SIM,Random_Number);
+
+    
+
+    if(ecrykey_AUC==ecrykey_SIM){
+        cout<<"Proper ecryption is possible"<<endl;
+    }
+    else{
+        cout<<"Proper encryption is not possible"<<endl;
     }
 
 
