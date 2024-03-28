@@ -133,7 +133,7 @@ int main(){
     printstring(Random_Number);
 
     string A3_AUC=A3(Key_AUC,Random_Number);
-    string A3_SIM=A3(Key_SIM,Random_Number_2);
+    string A3_SIM=A3(Key_SIM,Random_Number);
 
    
     
@@ -146,7 +146,7 @@ int main(){
     }
 
     string ecrykey_AUC=A8(Key_AUC,Random_Number);
-    string ecrykey_SIM=A8(Key_SIM,Random_Number_2);
+    string ecrykey_SIM=A8(Key_SIM,Random_Number);
 
     
 

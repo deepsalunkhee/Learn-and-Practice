@@ -123,7 +123,7 @@ void cal_data_signal(vector<int>&data,vector<int>&code,vector<int>&signal){
 	int n=code.size();
 	for(int i=0;i<n;i++){
 		signal.push_back(data[0]*code[i]);
-	}
+	}			
 	
 	
 }
