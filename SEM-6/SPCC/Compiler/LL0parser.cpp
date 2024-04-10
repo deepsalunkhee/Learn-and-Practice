@@ -417,6 +417,9 @@ int main()
     keywords["("] = "10";
     keywords[")"] = "11";
     keywords["$"] = "-1"; // End of file
+    //2 for int constants
+    //3 for float constants
+    
 
     // 1 for identifiers
 
@@ -453,7 +456,7 @@ int main()
     
     bool iscorrect= Parser(Tokensed);
     if(iscorrect){
-    	cout<<"The format grammer is follow"<<endl;
+    	cout<<"The  grammer is followed"<<endl;
 	}else{
 		cout<<"The grammer is not followed"<<endl;
 	}
