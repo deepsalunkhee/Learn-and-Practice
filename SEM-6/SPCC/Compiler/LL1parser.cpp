@@ -266,6 +266,8 @@ bool LL1Parser(vector<vector<string>> Tokensed)
         }
 
         string stop = s.top();
+
+        //what does string(1,Inputstring[pin] do? )=> it converts the char to string
         string ic = string(1, Inputstring[pin]);
 
         if (PT.find({stop, ic}) != PT.end())

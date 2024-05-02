@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.send("You have reached the Demo server");
 });
 
-app.post("/create", async (req, res) => {
+app.post("/creat", async (req, res) => {
   console.log(req.body);
   const { email, password } = req.body;
   const hashedPassword = Hasher.hash(password);

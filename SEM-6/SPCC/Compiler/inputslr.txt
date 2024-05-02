@@ -1,2 +1,2 @@
-E->BB
-B->cB|d
+S->CC
+C->aC|b
